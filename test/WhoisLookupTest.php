@@ -5,19 +5,10 @@ use PHPUnit\Framework\TestCase;
 
 class WhoisLookupTest extends TestCase
 {
-	public function testLookup()
+	public function testWhoisAnswer()
 	{
-		$sld = 'jeng.cc';
-
-		$domain = new WhoisLookup($sld);
-		$whois_answer = $domain->info();
-
-		echo $whois_answer;
-	}
-
-	public function testIfNicIsAvailable()
-	{
-
+		$domain = new WhoisLookup('www.google.ch');
+		$this->assertTrue($domain->getWhois() != '');
 	}
 
 	public function testDomainIsAvailable()
@@ -28,7 +19,7 @@ class WhoisLookupTest extends TestCase
 
 	public function testDomainIsNotAvailable()
 	{
-		$domain = new WhoisLookup('jeng.cc');
+		$domain = new WhoisLookup('www.google.ch');
 		$this->assertFalse($domain->isAvailable());
 	}
 }

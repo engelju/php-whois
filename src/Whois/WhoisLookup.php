@@ -11,6 +11,7 @@ class WhoisLookup
 
 	/**
 	 * @param string $domain full domain name (without trailing dot)
+	 * @throws \Exception
 	 */
 	public function __construct($domain)
 	{
@@ -18,8 +19,9 @@ class WhoisLookup
 		$this->servers = json_decode(file_get_contents(__DIR__ . '/whois.servers.json'), true);
 
 		$whois_server = $this->getNicServer();
-		if (!$whois_server)
-			return "No whois server for this tld in list!";
+		if (!$whois_server) {
+			throw new \Exception('No whois server for this tld in list!');
+		}
 	}
 
 	private function getNicServer()
@@ -36,7 +38,7 @@ class WhoisLookup
 		return false;
 	}
 
-	public function info()
+	public function getWhois()
 	{
 		// if whois server serve replay over HTTP protocol instead of WHOIS protocol
 		if (preg_match("/^https?:\/\//i", $this->nicServer)) {
@@ -131,7 +133,7 @@ class WhoisLookup
 	public function isAvailable()
 	{
 		// todo: chache info
-		$whois_string = $this->info();
+		$whois_string = $this->getWhois();
 
 		// todo: cache not_found_string
 		$not_found_string = '';

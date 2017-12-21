@@ -7,6 +7,3 @@ php:
 
 before_script:
   composer dump-autoload
-  
-script:
-  phpunit --configuration test/phpunit.xml

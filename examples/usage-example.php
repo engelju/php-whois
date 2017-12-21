@@ -1,10 +1,10 @@
 <?php
 
-include '../src/Phois/Whois/Whois.php';
+include '../vendor/autoload.php';
 
 $sld = 'reg.ru';
 
-$domain = new Phois\Whois\Whois($sld);
+$domain = new Whois\WhoisLookup($sld);
 
 $whois_answer = $domain->info();
 

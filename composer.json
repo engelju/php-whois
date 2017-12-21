@@ -17,6 +17,6 @@
         "ext-curl": "*"
     },
     "autoload": {
-        "psr-0": { "Phois\\Whois": "src" }
+        "psr-0": { "Whois": "src" }
     }
 }

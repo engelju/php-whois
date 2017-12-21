@@ -1,8 +1,9 @@
 <?php
 
 use Whois\WhoisLookup;
+use PHPUnit\Framework\TestCase;
 
-class WhoisLookupTest extends PHPUnit_Framework_TestCase
+class WhoisLookupTest extends TestCase
 {
 	public function testLookup()
 	{

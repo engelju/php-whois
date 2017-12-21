@@ -6,4 +6,4 @@ php:
   - 7.2
 
 script:
-    phpunit --configuration test/phpunit.xml --coverage-text
+    phpunit --configuration test/phpunit.xml

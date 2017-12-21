@@ -29,6 +29,6 @@ class WhoisLookupTest extends TestCase
 	public function testDomainIsNotAvailable()
 	{
 		$domain = new WhoisLookup('jeng.cc');
-		$this->assertTrue($domain->isAvailable());
+		$this->assertFalse($domain->isAvailable());
 	}
 }

@@ -7,7 +7,7 @@ class WhoisLookupTest extends TestCase
 {
 	public function testWhoisAnswer()
 	{
-		$domain = new WhoisLookup('www.google.ch');
+		$domain = new WhoisLookup('jeng.cc');
 		$this->assertTrue($domain->getWhois() != '');
 	}
 
@@ -19,7 +19,7 @@ class WhoisLookupTest extends TestCase
 
 	public function testDomainIsNotAvailable()
 	{
-		$domain = new WhoisLookup('www.google.ch');
+		$domain = new WhoisLookup('jeng.cc');
 		$this->assertFalse($domain->isAvailable());
 	}
 }

@@ -6,4 +6,8 @@ php:
   - 7.2
 
 before_script:
-  composer dump-autoload
+  - composer require phpunit
+  - composer dump-autoload
+
+script:
+  vendor/bin/phpunit
